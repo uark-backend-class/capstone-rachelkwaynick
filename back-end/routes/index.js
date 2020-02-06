@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const userController = require('../controllers/user.controller');
 
-router.route('/registerUser')
+router.route('/api/registerUser')
     .post(userController.registerUser)
     .get(userController.getAllUsers);
 

@@ -11,17 +11,18 @@ import { FetchdataService } from '../shared/services/fetchdata.service';
 })
 export class WelcomeComponent implements OnInit {
   posts;
-  Url = "https://jsonplaceholder.typicode.com/posts"
+
+  Url = "/api/registerUser";
 
   constructor(private dataService: FetchdataService) { }
 
   getPosts() : void {
     this.dataService.getData(this.Url)
-      .subscribe(data => console.log(data))
+      .subscribe(data => this.posts = data)
   }
 
   ngOnInit() {
-    this.posts = this.getPosts()
+    this.getPosts();
   }
 
 }

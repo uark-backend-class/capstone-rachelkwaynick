@@ -1,9 +1,7 @@
 <p>welcome works!</p>
  
-<div>
-    <ul *ngFor="let post of posts">
-        <li>{{post}}</li>
-    </ul>
+<div *ngFor="let post of posts">
+    <span>{{ post.firstName }}</span>
 </div>
 
 <a routerLink='/register'>Register</a>
