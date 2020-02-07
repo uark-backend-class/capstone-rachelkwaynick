@@ -5,8 +5,9 @@ const User = require('../db').User;
 exports.registerUser = async (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
+  
 
-    await User.register(email, password, async (error, registeredUser) => {
+    User.register(email, password, async (error, registeredUser) => {
 
 
 
@@ -29,6 +30,6 @@ exports.registerUser = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
     let users = await User.findAll();
-    res.json(users);
+    res.json("get all users");
     console.log(users);
 }
