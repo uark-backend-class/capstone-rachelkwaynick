@@ -6,7 +6,7 @@ exports.registerUser = async (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
 
-    User.register(email, password, async (error, registeredUser) => {
+    await User.register(email, password, async (error, registeredUser) => {
 
 
 
