@@ -22,6 +22,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
