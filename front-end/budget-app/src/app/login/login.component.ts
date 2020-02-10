@@ -31,12 +31,6 @@ export class LoginComponent implements OnInit {
   
 
    onSubmit() {
-    // const formData: any = new FormData();
-    //  formData.append('firstName', this.registerForm.get('firstName').value);
-    //  formData.append('lastName', this.registerForm.get('lastName').value);
-    //  formData.append('email', this.registerForm.get('email').value);
-    //  formData.append('password', this.registerForm.get('password').value);
-
     let firstName = this.registerForm.get('firstName').value;
     let lastName = this.registerForm.get('lastName').value;
     let email = this.registerForm.get('email').value;
