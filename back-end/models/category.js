@@ -1,11 +1,12 @@
 module.exports = (sequelize, Sequelize) => {
-    return sequelize.define('budget', {
+    return sequelize.define('category', {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true, 
             autoIncrement: true,
         }, 
-        userId: Sequelize.INTEGER, 
-        family: Sequelize.BOOLEAN,
+        budgetId: Sequelize.INTEGER, 
+        name: Sequelize.STRING,
+        type: Sequelize.STRING,
     }, {freezeTableName: true});
 }
