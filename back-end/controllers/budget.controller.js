@@ -8,8 +8,16 @@ exports.getAllBudgets = async (req, res) => {
 }
 
 exports.updateBudget = async (req, res) => {
-    // req.body.userId = req.body.id
     await Budget.upsert(req.body);
-    res.send()
+    let budget = await Budget.findAll({where: {id: req.body.id}} );
+    res.send(budget)
 }
+
+exports.getOneBudget = async (req, res) => {
+    let budget = await Budget.findAll({where: {id: req.params.id}} );
+    console.log(budget);
+    res.send(budget)
+}
+
+
 

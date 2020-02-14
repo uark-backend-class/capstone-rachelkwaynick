@@ -8,13 +8,10 @@ exports.registerUser = async (req, res) => {
 
     User.register(email, password, async (error, registeredUser) => {
 
-
-
         if (error) {
             console.log(error.message);
             return res.status(500).send(error.message);
         }
-
 
         res.send("Created user: " + email);
 
@@ -23,7 +20,6 @@ exports.registerUser = async (req, res) => {
         
         await registeredUser.save();
 
-        
     });
 }
 

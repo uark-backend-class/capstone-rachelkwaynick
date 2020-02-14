@@ -26,7 +26,7 @@ Transaction.belongsTo(Budget);
 
 
 
-sequelize.sync({force: true})
+sequelize.sync()
     .then(() => console.log('Tables are created'))
 
 
