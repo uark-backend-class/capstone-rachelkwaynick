@@ -4,6 +4,7 @@ const userController = require('../controllers/user.controller');
 const budgetController = require('../controllers/budget.controller');
 const categoryController = require('../controllers/category.controller');
 const itemController = require('../controllers/item.controller');
+const transactionController = require('../controllers/transaction.controller');
 
 
 //Register User
@@ -42,5 +43,14 @@ router.post('/api/updateItem', itemController.updateItem);
 router.get('/api/getOneItem/:id', itemController.getOneItem);
 
 router.get('/api/getAllCategoryItems/:id', itemController.getAllCategoryItems);
+
+//Transaction Routes
+router.get('/api/getAllTransactions', transactionController.getAllTransactions);
+
+router.post('/api/updateTransaction', transactionController.updateTransaction);
+
+router.get('/api/getOneTransaction/:id', transactionController.getOneTransaction);
+
+router.get('/api/getAllCategoryTransactions/:id', transactionController.getAllItemTransactions);
 
 module.exports = router;

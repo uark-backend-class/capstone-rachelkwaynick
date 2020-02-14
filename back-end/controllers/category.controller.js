@@ -2,7 +2,7 @@ const Category = require('../db').Category;
 
 exports.getAllCategories = async (req, res) => {
     let categories = await Category.findAll();
-    res.send(categories);
+    res.json(categories);
     console.log(categories);
 
 }
