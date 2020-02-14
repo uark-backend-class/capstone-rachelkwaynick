@@ -51,6 +51,6 @@ router.post('/api/updateTransaction', transactionController.updateTransaction);
 
 router.get('/api/getOneTransaction/:id', transactionController.getOneTransaction);
 
-router.get('/api/getAllCategoryTransactions/:id', transactionController.getAllItemTransactions);
+router.get('/api/getAllItemTransactions/:id', transactionController.getAllItemTransactions);
 
 module.exports = router;
