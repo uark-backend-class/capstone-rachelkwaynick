@@ -20,7 +20,11 @@ exports.getOneTransaction = async (req, res) => {
 }
 
 exports.getAllItemTransactions = async (req, res) => {
-    let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
-    console.log(transactions);
-    res.send(transactions)
+    // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
+    // console.log(transactions);
+    // res.send(transactions)
+
+    let transaction = await Transaction.itemTransactions;
+    // console.log(transaction);
+    res.send(transaction);
 }

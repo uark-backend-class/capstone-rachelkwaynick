@@ -11,5 +11,16 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING, 
         note: Sequelize.STRING,
 
-    }, {freezeTableName: true});
+    }, {
+        freezeTableName: true,
+        getterMethods: {
+            async itemTransactions() {
+                let transactions = await this.getTransactions();
+                
+                console.log(transactions)
+
+                return transactions.map(transaction => transaction.amt);
+            }
+        }
+    });
 }
