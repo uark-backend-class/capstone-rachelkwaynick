@@ -14,12 +14,19 @@ module.exports = (sequelize, Sequelize) => {
     }, {
         freezeTableName: true,
         getterMethods: {
-            async itemTransactions() {
+            async sumTransactions() {
+                console.log('sumTrans')
                 let transactions = await this.getTransactions();
                 
-                console.log(transactions)
+                let sum = 0;
 
-                return transactions.map(transaction => transaction.amt);
+                for (let transaction of transactions){
+                    sum += Number.parseFloat(transaction.amt)
+                }
+
+                console.log(sum)
+
+                return sum;
             }
         }
     });

@@ -35,13 +35,14 @@ router.get('/api/getAllItems', itemController.getAllItems);
 router.post('/api/updateItem', itemController.updateItem);
 router.get('/api/getOneItem/:id', itemController.getOneItem);
 router.get('/api/getAllCategoryItems/:id', itemController.getAllCategoryItems);
+router.get('/api/getAllItemTransactions/:id', itemController.getAllItemTransactions);
 
 
 //Transaction Routes
 router.get('/api/getAllTransactions', transactionController.getAllTransactions);
 router.post('/api/updateTransaction', transactionController.updateTransaction);
 router.get('/api/getOneTransaction/:id', transactionController.getOneTransaction);
-router.get('/api/getAllItemTransactions/:id', transactionController.getAllItemTransactions);
+
 
 
 //Calculations

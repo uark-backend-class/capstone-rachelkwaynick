@@ -5,17 +5,23 @@ const Transaction = require('../db').Transaction;
 
 //Item Level
 exports.calculateTransactionSum = async (req, res) => {
-    let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
+    // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
 
-    let transactionArray = [];
+    // let transactionArray = [];
 
-    for (let i = 0; i < transactions.length; i++){
-        transactionArray.push(Number.parseFloat(transactions[i].amt)) 
-    }
+    // for (let i = 0; i < transactions.length; i++){
+    //     transactionArray.push(Number.parseFloat(transactions[i].amt)) 
+    // }
 
-    let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+    // let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
 
-    res.send(transactionSum)
+    // res.send(transactionSum)
+
+    let item = await Item.findByPk(req.params.id);
+
+    let sum = await item.sumTransactions;
+
+    res.send(`${sum}`)
 }
 
 exports.calculateItemRemaining = async (req, res) => {

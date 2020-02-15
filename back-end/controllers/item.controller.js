@@ -24,3 +24,21 @@ exports.getAllCategoryItems = async (req, res) => {
     console.log(items);
     res.send(items)
 }
+
+exports.getAllItemTransactions = async (req, res) => {
+    // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
+    // console.log(transactions);
+    // res.send(transactions)
+
+    // let transaction = await Transaction.itemTransactions;
+    // console.log(transaction);
+    // res.send(transaction);
+
+
+    let item = await Item.findByPk( req.params.id);
+
+    console.log('getAllItemTransactions')
+    let itemTransactions = await item.getTransactions()
+
+    res.send(itemTransactions)
+}
