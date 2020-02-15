@@ -17,7 +17,7 @@ exports.updateBudget = async (req, res) => {
 }
 
 exports.getOneBudget = async (req, res) => {
-    let budget = await Budget.findOne({where: {id: req.params.id}} );
+    let budget = await Budget.findAll({where: {id: req.params.id}} );
     console.log(budget);
     res.send(budget)
 }

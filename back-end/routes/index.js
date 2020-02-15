@@ -47,5 +47,8 @@ router.get('/api/getAllItemTransactions/:id', transactionController.getAllItemTr
 //Calculations
 router.get('/api/calculateTransactionSum/:id', calculateController.calculateTransactionSum);
 router.get('/api/calculateItemRemaining/:id', calculateController.calculateItemRemaining);
+router.get('/api/calculateItemPercentage/:id', calculateController.calculateItemPercentage);
+router.get('/api/calculateCategoryPlanned/:id', calculateController.calculateCategoryPlanned);
+router.get('/api/calculateIncomePlanned/:id', calculateController.calculateIncomePlanned);
 
 module.exports = router;

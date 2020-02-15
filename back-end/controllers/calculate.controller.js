@@ -38,3 +38,66 @@ exports.calculateItemRemaining = async (req, res) => {
 
     res.json(itemRemaining)
 }
+
+exports.calculateItemPercentage = async (req, res) => {
+    let itemObj = await Item.findAll({where: {id: req.params.id}});
+    
+    let itemPlanned = itemObj[0].plannedAmt;
+
+    let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
+
+    let transactionArray = [];
+
+    for (let i = 0; i < transactions.length; i++){
+        transactionArray.push(Number.parseFloat(transactions[i].amt)) 
+    }
+
+    let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+
+    let itemPercentage = transactionSum/itemPlanned;
+
+    res.json(itemPercentage.toFixed(2))
+}
+
+exports.calculateCategoryPlanned = async (req, res) => {
+    let items = await Item.findAll({where: {categoryId: req.params.id}});
+
+    let itemsPlannedArray = [];
+
+    for (let i = 0; i < items.length; i++) {
+        itemsPlannedArray.push(Number.parseFloat(items[i].plannedAmt))
+    }
+
+    let itemPlannedSum = (itemsPlannedArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+
+    res.json(itemPlannedSum)
+}
+
+exports.calculateIncomePlanned = async (req, res) => {
+    let budget = await Budget.findAll({
+        where: {id: req.params.id},
+        include: [{
+            model: Category,
+            where: {type: "income"}, 
+            include: [Item]
+        }]
+    })
+
+    let itemsPlannedArray = [];
+
+    for(let i = 0; i < budget.length; i++){
+        let categoriesArray = await budget[i].categories
+
+        for(let j = 0; j < categoriesArray.length; j++){
+            let itemsArray = await categoriesArray[j].items;
+
+            for(let k = 0; k < itemsArray.length; k++){
+                itemsPlannedArray.push(Number.parseFloat(itemsArray[k].plannedAmt));
+            }
+        }
+    }
+    
+    let incomePlannedSum = (itemsPlannedArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+
+    res.json(incomePlannedSum)
+}
