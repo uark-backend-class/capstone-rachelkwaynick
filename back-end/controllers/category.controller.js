@@ -24,3 +24,4 @@ exports.getAllBudgetCategories = async (req, res) => {
     console.log(categories);
     res.send(categories)
 }
+

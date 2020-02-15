@@ -12,5 +12,6 @@ module.exports = (sequelize, Sequelize) => {
         date: Sequelize.DATE, 
         type: Sequelize.STRING, 
         note: Sequelize.STRING,
+        
     }, {freezeTableName: true});
 }
