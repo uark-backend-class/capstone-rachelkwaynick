@@ -5,7 +5,6 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true, 
             autoIncrement: true,
         }, 
-        budgetId: Sequelize.INTEGER, 
         name: Sequelize.STRING,
         type: Sequelize.STRING,
     }, {freezeTableName: true});

@@ -5,8 +5,6 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true, 
             autoIncrement: true,
         }, 
-        budgetId: Sequelize.INTEGER, 
-        itemId: Sequelize.INTEGER,
         desc: Sequelize.STRING,
         date: Sequelize.DATE,
         amt: Sequelize.STRING,
