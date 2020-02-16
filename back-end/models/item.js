@@ -15,7 +15,6 @@ module.exports = (sequelize, Sequelize) => {
         freezeTableName: true,
         getterMethods: {
             async sumTransactions() {
-                console.log('sumTrans')
                 let transactions = await this.getTransactions();
                 
                 let sum = 0;
@@ -24,9 +23,37 @@ module.exports = (sequelize, Sequelize) => {
                     sum += Number.parseFloat(transaction.amt)
                 }
 
-                console.log(sum)
-
                 return sum;
+            },
+            async itemRemaining() {
+                let transactions = await this.getTransactions();
+
+                let sum = 0;
+
+                for (let transaction of transactions){
+                    sum += Number.parseFloat(transaction.amt)
+                }
+
+                let plannedAmt = this.plannedAmt;
+
+                let remaining = plannedAmt - sum;
+
+                return remaining
+            },
+            async itemPercentage() {
+                let transactions = await this.getTransactions();
+
+                let sum = 0;
+
+                for (let transaction of transactions){
+                    sum += Number.parseFloat(transaction.amt)
+                }
+
+                let plannedAmt = this.plannedAmt;
+
+                let percentage = sum / plannedAmt;
+
+                return percentage;
             }
         }
     });
