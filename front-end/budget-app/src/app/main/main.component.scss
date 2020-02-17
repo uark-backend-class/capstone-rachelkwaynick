@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    
+
+
+
+    .sidebar-container {
+        width: 15%;
+
+    }
+
+    .middle {
+        width: 85%;
+
+        .heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .col {
+                padding: 5px;
+
+
+
+            }
+
+
+            .date {
+                display: flex;
+                
+                .item {
+                    padding: 5px;
+                    font-size: 36px; 
+                }
+            }
+
+            .budget-info {
+                padding: 5px;
+                font-size: 18px;
+            }
+
+            .buttons {
+                display: flex; 
+
+
+                .add-trans {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+
+                    img {
+                        padding: 5px;
+                    }
+                    .label {
+                        padding: 5px;
+                    }
+
+
+                }
+            }
+        }
+
+      
+    }
+
+    
+}

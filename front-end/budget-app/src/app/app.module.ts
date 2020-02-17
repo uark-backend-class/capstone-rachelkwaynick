@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { CategoryComponent } from './shared/components/category/category.component';
 import { ItemComponent } from './shared/components/item/item.component';
 import { ItemDetailsComponent } from './shared/components/item-details/item-details.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ItemDetailsComponent } from './shared/components/item-details/item-deta
     MainComponent,
     CategoryComponent,
     ItemComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

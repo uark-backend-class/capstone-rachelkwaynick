@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PostdataService } from '../../../shared/services/postdata.service';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-item',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: PostdataService) { }
+
+  itemForm = new FormGroup({
+    plannedAmt: new FormControl(''),
+  });
+
+  Url = '/api/updateItem';
+
+  onValueChange(): void {
+    this.itemForm.valueChanges.subscribe(val=>{
+      console.log(val)
+    })
+  }
 
   ngOnInit() {
+    this.onValueChange();
   }
 
 }
