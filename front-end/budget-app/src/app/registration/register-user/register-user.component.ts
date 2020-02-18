@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { PostdataService } from '../../shared/services/postdata.service';
+import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-register-user',
@@ -10,7 +10,7 @@ import { PostdataService } from '../../shared/services/postdata.service';
 export class RegisterUserComponent implements OnInit {
 
 
-  constructor(private dataService: PostdataService){}
+  constructor(private dataService: DataService){}
    
 
 
