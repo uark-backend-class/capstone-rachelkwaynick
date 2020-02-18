@@ -20,12 +20,12 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.items$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        this.selectedId = +params.get('id');
-        return this.service.getItems();
-      })
-    )
+    // this.items$ = this.route.paramMap.pipe(
+    //   switchMap(params => {
+    //     this.selectedId = +params.get('id');
+    //     return this.service.getItems();
+    //   })
+    // )
   }
 
 }
