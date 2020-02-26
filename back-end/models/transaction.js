@@ -1,10 +1,12 @@
 module.exports = (sequelize, Sequelize) => {
-    return sequelize.define('budget', {
+    return sequelize.define('transaction', {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true, 
             autoIncrement: true,
-        },  
-        family: Sequelize.BOOLEAN,
+        }, 
+        desc: Sequelize.STRING,
+        date: Sequelize.DATE,
+        amt: Sequelize.STRING,
     }, {freezeTableName: true});
 }
