@@ -1,0 +1,39 @@
+<div class="item-card">
+    <div class="header">
+        <div class="item-name">
+            <input type="text" placeholder="Item Name">
+        </div>
+        <div class="remaining">
+            $0.00 remaining
+        </div>
+    </div>
+    <div class="body">
+        <div class="col date">
+            <div class="top-item date-label">
+                Due:
+            </div>
+            <div class="item date-value">    
+                01/01/2020
+            </div>
+        </div>
+        <form [formGroup]="itemForm">
+            <div class="col planned">
+                <div class="top-item planned-value">
+                    <input type="text" placeholder="$0.00">
+                </div>
+                <div class="item planned-label">
+                    Planned
+                </div>
+            </div>
+        </form>
+        
+        <div class="col actual">
+            <div class="top-item actual-value">
+                $0.00
+            </div>
+            <div class="item actual-label">
+                Actual
+            </div>
+        </div>
+    </div>
+</div>

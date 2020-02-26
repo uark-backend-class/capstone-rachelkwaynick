@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchdataService } from '../shared/services/fetchdata.service';
+import { DataService } from '../shared/services/Data.service';
 
 
 
@@ -14,7 +14,7 @@ export class WelcomeComponent implements OnInit {
 
   Url = "/api/registerUser";
 
-  constructor(private dataService: FetchdataService) { }
+  constructor(private dataService: DataService) { }
 
   getPosts() : void {
     this.dataService.getData(this.Url)
