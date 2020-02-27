@@ -6,68 +6,84 @@ const categoryController = require('../controllers/category.controller');
 const itemController = require('../controllers/item.controller');
 const transactionController = require('../controllers/transaction.controller');
 const calculateController = require('../controllers/calculate.controller');
+const authController = require('../controllers/auth.controller');
+
+//Log In/Register
+router.get('/', authController.welcomePage);
+router.get('/register', authController.registerPage);
+router.post('/registerUser', userController.registerUser);
+router.get('/login', authController.loginUser);
+router.post('/loginUser', authController.authenticateUser);
+router.get('/logout', authController.logoutUser);
+
+
+router.use(authController.isLoggedIn);
+
+router.get('/main', budgetController.showUserBudget);
+
+
+
+
 
 //Users
-router.post('/api/registerUser', userController.registerUser);
-router.get('/api/getAllUsers', userController.getAllUsers);
+router.get('/getAllUsers', userController.getAllUsers);
 
-//Log In User
 
 //Budget Routes
-router.get('/api/getAllBudgets', budgetController.getAllBudgets);
-router.post('/api/updateBudget', budgetController.updateBudget);
-router.get('/api/getOneBudget/:id', budgetController.getOneBudget);
+router.get('/getAllBudgets', budgetController.getAllBudgets);
+router.post('/updateBudget', budgetController.updateBudget);
+router.get('/getOneBudget/:id', budgetController.getOneBudget);
 router.get(
-  '/api/getAllBudgetInfoForUser/:id',
+  '/getAllBudgetInfoForUser/:id',
   budgetController.getAllBudgetInfoForUser,
 );
 
 //Category Routes
-router.get('/api/getAllCategories', categoryController.getAllCategories);
-router.post('/api/updateCategory', categoryController.updateCategory);
-router.get('/api/getOneCategory/:id', categoryController.getOneCategory);
+router.get('/getAllCategories', categoryController.getAllCategories);
+router.post('/updateCategory', categoryController.updateCategory);
+router.get('/getOneCategory/:id', categoryController.getOneCategory);
 router.get(
-  '/api/getAllBudgetCategories/:id',
+  '/getAllBudgetCategories/:id',
   categoryController.getAllBudgetCategories,
 );
 
 //Item Routes
-router.get('/api/getAllItems', itemController.getAllItems);
-router.post('/api/updateItem', itemController.updateItem);
-router.get('/api/getOneItem/:id', itemController.getOneItem);
-router.get('/api/getAllCategoryItems/:id', itemController.getAllCategoryItems);
+router.get('/getAllItems', itemController.getAllItems);
+router.post('/updateItem', itemController.updateItem);
+router.get('/getOneItem/:id', itemController.getOneItem);
+router.get('/getAllCategoryItems/:id', itemController.getAllCategoryItems);
 router.get(
-  '/api/getAllItemTransactions/:id',
+  '/getAllItemTransactions/:id',
   itemController.getAllItemTransactions,
 );
 
 //Transaction Routes
-router.get('/api/getAllTransactions', transactionController.getAllTransactions);
-router.post('/api/updateTransaction', transactionController.updateTransaction);
+router.get('/getAllTransactions', transactionController.getAllTransactions);
+router.post('/updateTransaction', transactionController.updateTransaction);
 router.get(
-  '/api/getOneTransaction/:id',
+  '/getOneTransaction/:id',
   transactionController.getOneTransaction,
 );
 
 //Calculations
 router.get(
-  '/api/calculateTransactionSum/:id',
+  '/calculateTransactionSum/:id',
   calculateController.calculateTransactionSum,
 );
 router.get(
-  '/api/calculateItemRemaining/:id',
+  '/calculateItemRemaining/:id',
   calculateController.calculateItemRemaining,
 );
 router.get(
-  '/api/calculateItemPercentage/:id',
+  '/calculateItemPercentage/:id',
   calculateController.calculateItemPercentage,
 );
 router.get(
-  '/api/calculateCategoryPlanned/:id',
+  '/calculateCategoryPlanned/:id',
   calculateController.calculateCategoryPlanned,
 );
 router.get(
-  '/api/calculateIncomePlanned/:id',
+  '/calculateIncomePlanned/:id',
   calculateController.calculateIncomePlanned,
 );
 

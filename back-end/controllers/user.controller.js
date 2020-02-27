@@ -2,6 +2,7 @@ const User = require('../db').User;
 
 // const passport = require('passport');
 
+
 exports.registerUser = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
@@ -20,6 +21,7 @@ exports.registerUser = async (req, res) => {
     await registeredUser.save();
   });
 };
+
 
 exports.getAllUsers = async (req, res) => {
   let users = await User.findAll();

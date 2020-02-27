@@ -3,6 +3,10 @@ const Category = require('../db').Category;
 const Item = require('../db').Item;
 const Transaction = require('../db').Transaction;
 
+exports.showUserBudget = (req, res) => {
+  res.render('budget')
+}
+
 exports.getAllBudgets = async (req, res) => {
   let budgets = await Budget.findAll();
   res.json(budgets);
