@@ -5,125 +5,127 @@ const Transaction = require('../db').Transaction;
 
 //Item Level
 exports.calculateTransactionSum = async (req, res) => {
-    // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
+  // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
 
-    // let transactionArray = [];
+  // let transactionArray = [];
 
-    // for (let i = 0; i < transactions.length; i++){
-    //     transactionArray.push(Number.parseFloat(transactions[i].amt)) 
-    // }
+  // for (let i = 0; i < transactions.length; i++){
+  //     transactionArray.push(Number.parseFloat(transactions[i].amt))
+  // }
 
-    // let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+  // let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
 
-    // res.send(transactionSum)
+  // res.send(transactionSum)
 
-    let item = await Item.findByPk(req.params.id);
+  let item = await Item.findByPk(req.params.id);
 
-    let sum = await item.sumTransactions;
+  let sum = await item.sumTransactions;
 
-    res.send(`${sum}`)
-}
+  res.send(`${sum}`);
+};
 
 exports.calculateItemRemaining = async (req, res) => {
-    // let itemObj = await Item.findAll({where: {id: req.params.id}});
-    
-    // let itemPlanned = itemObj[0].plannedAmt;
+  // let itemObj = await Item.findAll({where: {id: req.params.id}});
 
-    // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
+  // let itemPlanned = itemObj[0].plannedAmt;
 
-    // let transactionArray = [];
+  // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
 
-    // for (let i = 0; i < transactions.length; i++){
-    //     transactionArray.push(Number.parseFloat(transactions[i].amt)) 
-    // }
+  // let transactionArray = [];
 
-    // let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+  // for (let i = 0; i < transactions.length; i++){
+  //     transactionArray.push(Number.parseFloat(transactions[i].amt))
+  // }
 
-    // let itemRemaining = itemPlanned - transactionSum
-    // console.log(itemRemaining)
+  // let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
 
-    // res.json(itemRemaining)
+  // let itemRemaining = itemPlanned - transactionSum
+  // console.log(itemRemaining)
 
-    let item = await Item.findByPk(req.params.id);
+  // res.json(itemRemaining)
 
-    let remaining = await item.itemRemaining;
+  let item = await Item.findByPk(req.params.id);
 
-    res.send(`${remaining}`)
+  let remaining = await item.itemRemaining;
 
-}
+  res.send(`${remaining}`);
+};
 
 exports.calculateItemPercentage = async (req, res) => {
-    // let itemObj = await Item.findAll({where: {id: req.params.id}});
-    
-    // let itemPlanned = itemObj[0].plannedAmt;
+  // let itemObj = await Item.findAll({where: {id: req.params.id}});
 
-    // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
+  // let itemPlanned = itemObj[0].plannedAmt;
 
-    // let transactionArray = [];
+  // let transactions = await Transaction.findAll({where: {itemId: req.params.id}});
 
-    // for (let i = 0; i < transactions.length; i++){
-    //     transactionArray.push(Number.parseFloat(transactions[i].amt)) 
-    // }
+  // let transactionArray = [];
 
-    // let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+  // for (let i = 0; i < transactions.length; i++){
+  //     transactionArray.push(Number.parseFloat(transactions[i].amt))
+  // }
 
-    // let itemPercentage = transactionSum/itemPlanned;
+  // let transactionSum = (transactionArray.reduce((acc, curr) => acc + curr)).toFixed(2)
 
-    // res.json(itemPercentage.toFixed(2))
+  // let itemPercentage = transactionSum/itemPlanned;
 
-    let item = await Item.findByPk(req.params.id);
+  // res.json(itemPercentage.toFixed(2))
 
-    let percentage = await item.itemPercentage;
+  let item = await Item.findByPk(req.params.id);
 
-    res.send(`${percentage}`)
-}
+  let percentage = await item.itemPercentage;
+
+  res.send(`${percentage}`);
+};
 
 exports.calculateCategoryPlanned = async (req, res) => {
-    // let items = await Item.findAll({where: {categoryId: req.params.id}});
+  // let items = await Item.findAll({where: {categoryId: req.params.id}});
 
-    // let itemsPlannedArray = [];
+  // let itemsPlannedArray = [];
 
-    // for (let i = 0; i < items.length; i++) {
-    //     itemsPlannedArray.push(Number.parseFloat(items[i].plannedAmt))
-    // }
+  // for (let i = 0; i < items.length; i++) {
+  //     itemsPlannedArray.push(Number.parseFloat(items[i].plannedAmt))
+  // }
 
-    // let itemPlannedSum = (itemsPlannedArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+  // let itemPlannedSum = (itemsPlannedArray.reduce((acc, curr) => acc + curr)).toFixed(2)
 
-    // res.json(itemPlannedSum)
+  // res.json(itemPlannedSum)
 
-    let category = await Category.findByPk(req.params.id);
+  let category = await Category.findByPk(req.params.id);
 
-    let sumPlanned = await category.catPlanned;
+  let sumPlanned = await category.catPlanned;
 
-    res.send(`${sumPlanned}`)
-
-}
+  res.send(`${sumPlanned}`);
+};
 
 exports.calculateIncomePlanned = async (req, res) => {
-    let budget = await Budget.findAll({
-        where: {id: req.params.id},
-        include: [{
-            model: Category,
-            where: {type: "income"}, 
-            include: [Item]
-        }]
-    })
+  let budget = await Budget.findAll({
+    where: { id: req.params.id },
+    include: [
+      {
+        model: Category,
+        where: { type: 'income' },
+        include: [Item],
+      },
+    ],
+  });
 
-    let itemsPlannedArray = [];
+  let itemsPlannedArray = [];
 
-    for(let i = 0; i < budget.length; i++){
-        let categoriesArray = await budget[i].categories
+  for (let i = 0; i < budget.length; i++) {
+    let categoriesArray = await budget[i].categories;
 
-        for(let j = 0; j < categoriesArray.length; j++){
-            let itemsArray = await categoriesArray[j].items;
+    for (let j = 0; j < categoriesArray.length; j++) {
+      let itemsArray = await categoriesArray[j].items;
 
-            for(let k = 0; k < itemsArray.length; k++){
-                itemsPlannedArray.push(Number.parseFloat(itemsArray[k].plannedAmt));
-            }
-        }
+      for (let k = 0; k < itemsArray.length; k++) {
+        itemsPlannedArray.push(Number.parseFloat(itemsArray[k].plannedAmt));
+      }
     }
-    
-    let incomePlannedSum = (itemsPlannedArray.reduce((acc, curr) => acc + curr)).toFixed(2)
+  }
 
-    res.json(incomePlannedSum)
-}
+  let incomePlannedSum = itemsPlannedArray
+    .reduce((acc, curr) => acc + curr)
+    .toFixed(2);
+
+  res.json(incomePlannedSum);
+};

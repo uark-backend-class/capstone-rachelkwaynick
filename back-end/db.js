@@ -12,7 +12,7 @@ const User = UserModel(sequelize, Sequelize);
 const Budget = BudgetModel(sequelize, Sequelize);
 const Category = CategoryModel(sequelize, Sequelize);
 const Item = ItemModel(sequelize, Sequelize);
-const Transaction = TransactionModel(sequelize,Sequelize);
+const Transaction = TransactionModel(sequelize, Sequelize);
 
 User.hasOne(Budget);
 Budget.belongsTo(User);
@@ -24,16 +24,12 @@ Item.hasMany(Transaction);
 Transaction.belongsTo(Item);
 Transaction.belongsTo(Budget);
 
-
-
-sequelize.sync()
-    .then(() => console.log('Tables are created'))
-
+sequelize.sync().then(() => console.log('Tables are created'));
 
 module.exports = {
-    User,
-    Budget,
-    Category, 
-    Item, 
-    Transaction
-}
+  User,
+  Budget,
+  Category,
+  Item,
+  Transaction,
+};
