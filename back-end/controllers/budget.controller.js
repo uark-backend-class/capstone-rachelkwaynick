@@ -8,26 +8,30 @@ exports.showUserBudget = async (req, res) => {
     where: { userId: req.user.id },
   });
 
-  let budgetInfo = await Budget.findOne({
-    where: { userId: req.user.id },
-    include: [
-      {
-        model: Category,
-        include: [
-          {
-            model: Item,
-            include: [
-              {
-                model: Transaction,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  });
-    console.log(budgetInfo)
-  res.render('budget', {budget, budgetInfo});
+  let category = await Category.findAll({
+    where: { budgetId: budget.id}
+  })
+
+  // let budgetInfo = await Budget.findOne({
+  //   where: { userId: req.user.id },
+  //   include: [
+  //     {
+  //       model: Category,
+  //       include: [
+  //         {
+  //           model: Item,
+  //           include: [
+  //             {
+  //               model: Transaction,
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // });
+    console.log(category)
+  res.render('budget', {budget, category});
   
 }
 
