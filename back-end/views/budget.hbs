@@ -7,10 +7,20 @@
 <h2>{{budget.id}}</h2>
 
 
-<div>
+<table border='1'>
+
+    <tr>
+        <th>Name</th>
+        <th>Planned</th>
+        <th>Actual</th>
+    </tr>
+
+
+
+</table>
     {{#each category}}
 
-        {{category.name}}
+        {{this.name}}
     {{/each}}
 </div>
 

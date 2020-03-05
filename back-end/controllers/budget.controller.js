@@ -12,6 +12,8 @@ exports.showUserBudget = async (req, res) => {
     where: { budgetId: budget.id}
   })
 
+  
+
   // let budgetInfo = await Budget.findOne({
   //   where: { userId: req.user.id },
   //   include: [
