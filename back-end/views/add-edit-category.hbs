@@ -1,0 +1,24 @@
+<h1>add category</h1>
+{{user.firstName}}
+
+<h1>
+    {{!-- {{#if category}} --}}
+    Edit
+
+    {{!-- {{else}} --}}
+    Add
+
+    {{!-- {{/if}} --}}
+    Category
+</h1>
+
+<form action="/updateCategory" method="POST">
+    Name: <input type="text" name="name" value='{{ category.name }}'>
+    </br>
+    Type: <input type="text" name="type" value='{{ category.type }}'>
+    </br>
+    <input type="hidden" name="budgetId" value="{{budget.id}}">
+    
+
+    <button type="submit">Submit</button>
+</form>

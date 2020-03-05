@@ -12,6 +12,8 @@ const User = require('./db').User;
 
 const app = express();
 
+
+
 app.use(session({ secret: 'funky monkey' }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -26,6 +28,11 @@ app.set('view engine', '.hbs')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static('public'));
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  // res.locals.budget = req.budget;
+  next();
+});
 app.use(router);
 
 

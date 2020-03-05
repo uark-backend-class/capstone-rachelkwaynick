@@ -8,10 +8,12 @@ const transactionController = require('../controllers/transaction.controller');
 const calculateController = require('../controllers/calculate.controller');
 const authController = require('../controllers/auth.controller');
 
+
+
 //Log In/Register
 router.get('/', authController.welcomePage);
 router.get('/register', authController.registerPage);
-router.post('/registerUser', userController.registerUser);
+router.post('/registerUser', userController.registerUser, authController.authenticateUser);
 router.get('/login', authController.loginUser);
 router.post('/loginUser', authController.authenticateUser);
 router.get('/logout', authController.logoutUser);
@@ -22,6 +24,7 @@ router.use(authController.isLoggedIn);
 router.get('/main', budgetController.showUserBudget);
 
 
+router.get('/addCategory', categoryController.addCategory);
 
 
 
