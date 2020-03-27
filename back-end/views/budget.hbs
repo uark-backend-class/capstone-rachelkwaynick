@@ -14,13 +14,21 @@
         <th>Planned</th>
         <th>Actual</th>
     </tr>
+{{#each category}}
+    <tr>
+       
+       
+      
+            <td>
+                {{this.name}}
+            </td>
+       
+    </tr>
 
+{{/each}}
 
 
 </table>
-    {{#each category}}
-
-        {{this.name}}
-    {{/each}}
+    
 </div>
 
