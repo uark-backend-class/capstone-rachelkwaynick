@@ -7,52 +7,17 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/main">Budget <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="/main">Budget </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/transactions">Transactions</a>
+                <a class="nav-link active" href="/transactions">Transactions </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Log Out</a>
             </li>
-            
+
         </ul>
-        
+
     </div>
 </nav>
-
-
-<h1>
-    This is the Budget {{user.firstName}}
-</h1>
-
-<a href="/addCategory">Add Category</a>
-
-<h2>{{budget.id}}</h2>
-
-
-<table border='1'>
-
-    <tr>
-        <th>Name</th>
-        <th>Planned</th>
-        <th>Actual</th>
-    </tr>
-    {{#each category}}
-    <tr>
-
-
-
-        <td>
-            {{this.name}}
-        </td>
-
-    </tr>
-
-    {{/each}}
-
-
-</table>
-
-</div>

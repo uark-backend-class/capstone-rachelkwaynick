@@ -67,6 +67,7 @@ router.get(
   '/getOneTransaction/:id',
   transactionController.getOneTransaction,
 );
+router.get('/transactions', transactionController.showUserTransactions);
 
 //Calculations
 router.get(

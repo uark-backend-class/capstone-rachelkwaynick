@@ -26,12 +26,12 @@ exports.loginUser = (req, res, next) => {
 exports.logoutUser = (req, res) => {
   req.logout();
 
-  res.redirect('/welcome')
+  res.redirect('/')
 }
 
 exports.authenticateUser = passport.authenticate(
   'local', {
     successRedirect: '/main', 
-    failureRedirect: '/login'
+    failureRedirect: '/'
   }
 )
